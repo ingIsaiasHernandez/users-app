@@ -18,8 +18,8 @@ const UserForm = () => {
         <form onSubmit={handleSubmit(submit)}>
             <h2>Users app</h2>
             <div className="input-container">
-                <input type="text" placeholder='first name' id='first-name' {...register('first-name')}/>
-                <input type="text" placeholder='last name' id='last-name' {...register('last-name')}/>
+                <input type="text" placeholder='first name' id='first_name' {...register('first_name')}/>
+                <input type="text" placeholder='last name' id='last_name' {...register('last_name')}/>
             </div>
 
             <div className="input-container">
@@ -31,7 +31,7 @@ const UserForm = () => {
             </div>
 
             <div className="input-container">
-                <input type="number" placeholder='mm/dd/yyyy' id='year' {...register('year')}/>
+                <input type="date" placeholder='mm/dd/yyyy' id='birthday' {...register('birthday')}/>
             </div>
             <button>Submit</button>
 
