@@ -1,11 +1,15 @@
 import axios from 'axios';
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import {useForm} from 'react-hook-form';
 
 
-const UserForm = () => {
+const UserForm = ({isVisible, changeVisible, userSelected, selectUser, getUsers}) => {
+    
+    const emptyUser = {first_name: "", last_name: "", email: "", password: "", birthday: ""};
 
-    const { handleSubmit,register} = useForm();
+    const { handleSubmit,register, reset} = useForm();
 
     const submit = (data) => {
             console.log(data);
@@ -14,28 +18,46 @@ const UserForm = () => {
                 .then(res  => console.log(res.data));
     }
 
+    useEffect(() => {
+        if(userSelected){
+            reset()
+        } else{
+            reset(emptyUser)
+        }
+    },[userSelected])
+
     return (
-        <form onSubmit={handleSubmit(submit)}>
-            <h2>Users app</h2>
-            <div className="input-container">
-                <input type="text" placeholder='first name' id='first_name' {...register('first_name')}/>
-                <input type="text" placeholder='last name' id='last_name' {...register('last_name')}/>
-            </div>
+        <div className={`new-user ${isVisible ? []: "hide"}`}>
+            <form onSubmit={handleSubmit(submit)} className="new-user-form">
+                <div className="close-form" onClick={changeVisible}><box-icon name='x'></box-icon></div>
+                <h2 className='new-user-title'>Nuevo Usuario</h2>
+                <div className="input-container">
+                    <label htmlFor="first_name">Nombre: </label>
+                    <input type="text" placeholder='first name' id='first_name' {...register('first_name')}/>
+                </div>
 
-            <div className="input-container">
-                <input type="email" placeholder='email' id='email' {...register('email')}/>
-            </div>
+                <div className='input-container'>
+                    <label htmlFor="last_name">Apellido: </label>
+                    <input type="text" placeholder='last name' id='last_name' {...register('last_name')}/>
+                </div>
 
-            <div className="input-container">
-                <input type="password" placeholder='password' id='password' {...register('password')}/>
-            </div>
+                <div className="input-container">
+                    <label htmlFor="email">Correo electronico: </label>
+                    <input type="email" placeholder='email' id='email' {...register('email')}/>
+                </div>
 
-            <div className="input-container">
-                <input type="date" placeholder='mm/dd/yyyy' id='birthday' {...register('birthday')}/>
-            </div>
-            <button>Submit</button>
+                <div className="input-container">
+                    <label htmlFor="password">Contraseña: </label>
+                    <input type="password" placeholder='password' id='password' {...register('password')}/>
+                </div>
 
-        </form>
+                <div className="input-container">
+                    <label htmlFor="birthday">Fecha de nacimiento: </label>
+                    <input type="date" placeholder='mm/dd/yyyy' id='birthday' {...register('birthday')}/>
+                </div>
+                <button className='submit-button'>Submit</button>
+            </form>
+        </div>
     );
 };
 

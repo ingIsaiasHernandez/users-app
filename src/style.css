@@ -2,76 +2,178 @@
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     /* text-align: center; */
     box-sizing: border-box;
-  }
-  
-  .App {
-    padding: 30px;
-    display: flex;
-  }
-  
-  form {
-    width: 100%;
-    padding: 40px;
-    border: 1px solid silver;
-    border-radius: 10px;
-    margin-right: 40px;
-    height: 100%;
-    text-align: center;
-
-  }
-
-  form h2{
-    margin: 40px;
-  }
-
-  .input-container {
-    margin-bottom: 10px;
-  }
-  
-  .input-container input {
-    display: block;
-    padding: 8px 10px;
-    margin-top: 5px;
-    width: 100%;
-    border-radius: 5px;
-    border: 1px solid silver;
-  }
-
-  #last-name{
-    display: inline;
-  }
-
-  button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-  
-  form button {
-    background: greenyellow;
-  }
-  
-  .products-list {
-    width: 50%;
-  }
-  
-  .products-list ul {
-    list-style: none;
-    width: 100%;
     margin: 0;
     padding: 0;
   }
-  
-  .products-list ul li {
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-  }
-  
-  .products-list ul li h4 {
-    margin: 0 0 10px 0;
-    font-size: 20px;
-  }
-  
+
+
+br{
+  color: #E5E5E5;
+  border: 1px solid #E5E5E5;
+}
+
+.App{
+  position: relative;
+}
+
+.header{
+  padding: 2rem 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.new-user-button {
+  background: #555A88;
+  color: white;
+  padding: 10px;
+}
+
+.new-user{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(128, 128, 128, 0.52);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-user-form{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  width: 30%;
+  font-size: large;
+  gap: 1.3rem;
+  position: relative;
+  z-index: 10;
+}
+
+.new-user-title{
+  color: #0F0F2D;
+  font-weight: 700;
+  font-size: 32px;
+  position: relative;
+}
+
+.input-container{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.submit-button {
+  background-color: #555A88;
+  border: none;
+  color: white;
+  width: 100%;
+  height: 2rem;
+  margin-top: 1rem;
+}
+
+.close-form{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: white;
+}
+
+.hide{
+  display: none;
+}
+
+.main-page-body{
+  margin: 0 10%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  grid-auto-rows: minmax(100px, auto);
+  position: relative;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.user-container{
+  border: 1px solid #E5E5E5;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.user-container-title{
+  color: #0F0F2D;
+  font-weight: 500;
+  font-size: 25px;
+  padding: 1rem 0;
+  position: relative;
+}
+
+.user-container-title::after{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0;
+  border: 1px solid #e5e5e580;
+  bottom: 0;
+  left: 0;
+}
+
+.user-subtitle{
+  color: #D3D3D3;
+}
+
+.user-container-item{
+  margin: 1rem 0;
+}
+
+.birthday-icon{
+  position: relative;
+}
+
+.birthday-icon::after{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0;
+  border: 1px solid #e5e5e580;
+  bottom: -1.8rem;
+  left: 0;
+}
+
+.user-container-icons{
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
+  margin: 2rem 0 1rem;
+}
+.user-icon-edit{
+  background-color: F7F7F7;
+  width: 43px;
+  height: 43px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  color: #D3D3D3;
+  border: 1px solid #BDBDBD;
+  border-radius: 4px;
+}
+
+.user-icon-delete{
+  background-color: #D85D5D;
+  width: 43px;
+  height: 43px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  color: #FFFFFF;
+  border: 1px solid #D93F3F;
+  border-radius: 4px;
+}
