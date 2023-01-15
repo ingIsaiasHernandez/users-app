@@ -14,6 +14,8 @@ function App() {
       .then(res => setUsersList(res.data));
   },[]);
 
+  console.log(userslist)
+
   const getUsers = () =>{
     axios.get('https://users-crud.academlo.tech/users/')
       .then(res => setUsersList(res.data));
@@ -23,6 +25,8 @@ function App() {
     setUserSelected(user)
   }
 
+  console.log(userSelected);
+
   const [isVisible,setIsVisible] = useState(false)
 
   const changeVisible = () => {
@@ -31,12 +35,19 @@ function App() {
 
   return (
     <div className="App">
-      <UsersForm isVisible={isVisible} changeVisible={changeVisible}/>
+      <UsersForm
+      userSelected={userSelected}
+      isVisible={isVisible}
+      getUsers={getUsers} 
+      changeVisible={changeVisible}/>
       <div className='header'>
         <h1>Usuarios</h1>
         <button className='new-user-button' onClick={changeVisible}> + Crear nuevo usuario</button>
       </div>
-        <UsersList userslist={userslist} />     
+        <UsersList 
+        userslist={userslist}
+        selectUser={selectUser}
+        />     
     </div>
   )
 }

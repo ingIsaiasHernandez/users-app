@@ -11,20 +11,40 @@ const UserForm = ({isVisible, changeVisible, userSelected, selectUser, getUsers}
 
     const { handleSubmit,register, reset} = useForm();
 
+
+    useEffect(() => {
+        if(userSelected !== null){
+            reset(userSelected)
+        } else{
+             reset(emptyUser)
+         }
+    },[userSelected])
+
+    
+
     const submit = (data) => {
             console.log(data);
 
-            axios.post('https://users-crud.academlo.tech/users/', data)
-                .then(res  => console.log(res.data));
-    }
+            if(userSelected){
 
-    useEffect(() => {
-        if(userSelected){
-            reset()
-        } else{
-            reset(emptyUser)
-        }
-    },[userSelected])
+                axios.put(`https://users-crud.academlo.tech/users/${userSelected.id}/`,data)
+                    .then(() => 
+                        {
+                            getUsers()
+                            selectUser(null);
+                        }
+                    );
+
+            }else{
+                axios.post('https://users-crud.academlo.tech/users/', data)
+                .then(()  => {
+                    getUsers()
+                    reset(emptyUser);
+                });
+            }
+
+          
+    }
 
     return (
         <div className={`new-user ${isVisible ? []: "hide"}`}>
