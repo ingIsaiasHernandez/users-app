@@ -5,7 +5,7 @@ import { useState } from 'react';
 import {useForm} from 'react-hook-form';
 
 
-const UserForm = ({isVisible, changeVisible, userSelected, selectUser, getUsers}) => {
+const UserForm = ({isVisible, changeVisible, userSelected, selectUser, getUsers, changeVisibleConfirmation}) => {
     
     const emptyUser = {first_name: "", last_name: "", email: "", password: "", birthday: ""};
 
@@ -23,27 +23,24 @@ const UserForm = ({isVisible, changeVisible, userSelected, selectUser, getUsers}
     
 
     const submit = (data) => {
-            console.log(data);
-
             if(userSelected){
-
-                axios.put(`https://users-crud.academlo.tech/users/${userSelected.id}/`,data)
-                    .then(() => 
-                        {
-                            getUsers()
-                            selectUser(null);
-                        }
-                    );
-
+                reset(userSelected);
+                axios.put(`https://users-crud.academlo.tech/users/${userSelected.id}/`, data)
+                    .then(() => {
+                                getUsers()
+                                reset(emptyUser);
+                                selectUser(null);
+                            });
+                
+                changeVisibleConfirmation();
+                changeVisible();
             }else{
                 axios.post('https://users-crud.academlo.tech/users/', data)
-                .then(()  => {
-                    getUsers()
-                    reset(emptyUser);
-                });
-            }
-
-          
+                .then(()  =>getUsers());
+                reset(emptyUser);
+                changeVisibleConfirmation();
+                changeVisible();
+            }        
     }
 
     return (

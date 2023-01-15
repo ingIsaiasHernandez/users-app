@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UsersList = ({userslist, selectUser}) => {
+const UsersList = ({userslist, selectUser, changeVisible, deleteUser}) => {
     return (
         <div className='main-page-body'>
             {userslist.map(user =>(
@@ -15,8 +15,8 @@ const UsersList = ({userslist, selectUser}) => {
                         <i class='bx bx-gift' ></i>  {user.birthday}
                     </div>
                     <div className='user-container-icons'>
-                        <div className='user-icon-edit'><i class='bx bx-pencil bx-sm'><button onClick={() => selectUser(user)}></button></i></div>
-                        <div className='user-icon-delete'><i class='bx bx-trash bx-sm user-icon-delete' ></i></div>
+                        <div className='user-icon-edit' onClick={() => selectUser(user)}><i class='bx bx-pencil bx-sm'></i></div>
+                        <div className='user-icon-delete' onClick={() => deleteUser(user)}><i class='bx bx-trash bx-sm user-icon-delete' ></i></div>
                     </div>
                 </div>
             ))}
