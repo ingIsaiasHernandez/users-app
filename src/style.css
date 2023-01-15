@@ -204,3 +204,24 @@ br{
 .hide{
   display: none;
 }
+
+@media only screen and (max-width: 768px){
+  .main-page-body{
+    margin: 0 10%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1rem;
+    grid-auto-rows: minmax(100px, auto);
+    position: relative;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  
+  .new-user-form{
+    padding: 1rem;
+    width: 80%;
+    gap: 1rem;
+    z-index: 10;
+    overflow-y: hidden;
+  }
+}
