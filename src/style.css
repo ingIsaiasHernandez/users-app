@@ -231,5 +231,10 @@ br{
     right: 0;
     color: white;
   }
-  
+
+  .confirmation-card{
+    width: 80%;
+    padding: 1rem;
+  }
+
 }
