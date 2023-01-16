@@ -27,7 +27,7 @@ function App() {
 
   const selectUser = (user) => {
     setUserSelected(user)
-    setAction("Actualizado")
+    setAction("updated")
     changeVisible()
   }
 
@@ -36,7 +36,7 @@ function App() {
         .delete(`https://users-crud.academlo.tech/users/${user.id}`)
         .then(() => {
                     getUsers();
-                    setAction("eliminado");
+                    setAction("deleted");
                     changeVisibleConfirmation();
                   })
   }
@@ -51,7 +51,7 @@ function App() {
 
   const createUser = () => {
     changeVisible();
-    setAction("creado");
+    setAction("created");
   }
 
   return (
@@ -66,8 +66,8 @@ function App() {
       action={action}
       />
       <div className='header'>
-        <h1>Usuarios</h1>
-        <button className='new-user-button' onClick={createUser} action={action}> + Crear nuevo usuario</button>
+        <h1>Users app <b className='header-version'>- v1.0</b> </h1>
+        <button className='new-user-button' onClick={createUser} action={action}> + Create new user</button>
       </div>
         <UsersList 
         userslist={userslist}

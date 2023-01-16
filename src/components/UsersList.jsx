@@ -1,17 +1,17 @@
 import React from 'react';
 
-const UsersList = ({userslist, selectUser, changeVisible, deleteUser}) => {
+const UsersList = ({userslist, selectUser, deleteUser}) => {
     return (
         <div className='main-page-body'>
             {userslist.map(user =>(
                 <div key={user.id} className="user-container">
                     <h4 className='user-container-title'>{user.first_name} {user.last_name}</h4>
                     <div className='user-container-item'>
-                        <p className='user-subtitle'>CORREO</p>
+                        <p className='user-subtitle'>Email</p>
                         {user.email}
                     </div>
                     <div className='user-container-item'>
-                        <p className='user-subtitle birthday-icon'>CUMPLEAÑOS</p>
+                        <p className='user-subtitle birthday-icon'>Birthday</p>
                         <i class='bx bx-gift' ></i>  {user.birthday}
                     </div>
                     <div className='user-container-icons'>

@@ -23,10 +23,18 @@ br{
   justify-content: space-between;
 }
 
+.header-version{
+
+  color: darkgray;
+  font-size: 14px;
+}
+
 .new-user-button {
   background: #555A88;
   color: white;
   padding: 10px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.37);
 }
 
 .new-user{
@@ -52,6 +60,7 @@ br{
   gap: 1.3rem;
   position: relative;
   z-index: 10;
+  border-radius: 20px;
 }
 
 .new-user-title{
@@ -74,6 +83,8 @@ br{
   width: 100%;
   height: 2rem;
   margin-top: 1rem;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px rgb(128 128 128 / 73%);
 }
 
 .close-form{
@@ -96,8 +107,9 @@ br{
 
 .user-container{
   border: 1px solid #E5E5E5;
-  border-radius: 4px;
+  border-radius: 20px;
   padding: 1rem;
+  box-shadow: 10px 10px 10px rgba(109, 109, 109, 0.308);
 }
 
 .user-container-title{
@@ -148,8 +160,8 @@ br{
 }
 .user-icon-edit{
   background-color: F7F7F7;
-  width: 43px;
-  height: 43px;
+  width: 46px;
+  height: 46px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -162,8 +174,8 @@ br{
 
 .user-icon-delete{
   background-color: #D85D5D;
-  width: 43px;
-  height: 43px;
+  width: 46px;
+  height: 46px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -171,7 +183,7 @@ br{
   align-content: center;
   color: #FFFFFF;
   border: 1px solid #D93F3F;
-  border-radius: 4px;
+  border-radius: 50%;
 }
 
 .confirmation-form{
@@ -220,7 +232,7 @@ br{
   .new-user-form{
     padding: 1rem;
     width: 80%;
-    gap: 1rem;
+    gap: 2rem;
     z-index: 10;
     overflow-y: hidden;
   }
@@ -232,9 +244,16 @@ br{
     color: white;
   }
 
+  #icon{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
+
   .confirmation-card{
     width: 80%;
     padding: 1rem;
   }
+
 
 }
